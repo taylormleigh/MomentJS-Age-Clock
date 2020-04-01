@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="style.css">
   <!--Expose Moment.js and moment-precise-range-plugin to this file-->
   <script type="text/javascript" src="./node_modules/moment/moment.js"></script>
-  <script type="text/javascript" src="./node_modules/moment-precise-range-plugin/moment-precise-range.js"></script>
+<!--   <script type="text/javascript" src="./node_modules/moment-precise-range-plugin/moment-precise-range.js"></script> -->
+  <script src="moment-precise-range.js"></script>
 </head>
 <body>
   <div class="countdown"></div>
@@ -19,9 +20,12 @@
     function displayAge(){
       /* 
       Use moment() to create a new moment object from the present time
-      Fix this function to display someone's exact age
-      */
-      document.querySelector('.countdown').innerHTML = moment()
+      Fix this function to display someone's exact age*/
+      var birthday = moment(window.birthday);
+      var now = moment();
+      var diff = moment.preciseDiff(birthday, now);
+      //moment().format();
+      document.querySelector('.countdown').innerHTML = diff;
     }
   </script>
 </body>
